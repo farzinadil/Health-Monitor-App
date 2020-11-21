@@ -17,6 +17,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="form.css">
+  <link href="node_modules/handsontable/dist/handsontable.full.min.css" rel="stylesheet" media="screen">
 
 
 </head>
@@ -339,9 +341,44 @@
         <!-- /.container-fluid -->
 
         <!-- Form-->
+        <form action="#" method="post">
+          <div>
+              <label for="Date">Date</label>
+              <input type="Date" name="Date" id="Date" />
+          </div>
+          <div>
+              <label for="Day">Day</label>
+              <input type="Day" name="Day" id="Day" />
+          </div>
+          <div>
+              <label for="Activity">Activity</label>
+              <input type="Activity" name="Activity" id="Activity" />
+          </div>
+          <div>
+              <label for="Weight">Weight</label>
+              <input type="Weight" name="Weigth" id="Weight" />
+          </div>
+          <div>
+              <label for="Minutes">Minutes</label>
+              <input type="Minutes" name="Minutes" id="Minutes" />
+          </div>
+          <div>
+              <label for="CaloriesIn">CaloriesIn</label>
+              <input type="CaloriesIn" name="CaloriesIn" id="CaloriesIn" />
+          </div>
+          <div>
+              <label for="CaloriesOut">CaloriesOut</label>
+              <input type="CaloriesOut" name="CaloriesOut" id="CaloriesOut" />
+          </div>
+          <p>
+              <input type="submit" value="Send" />
+          </p>
+      </form>
      
         
         <!-- Table -->
+
+        <div id="table"></div> 
 
 
 
@@ -401,9 +438,16 @@
 >
 
   <!-- Api Script-->
-  <script src="tableapi.js"></script>
+  
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script src="node_modules/handsontable/dist/handsontable.full.min.js"></script>
+
+
+  <script src="form.js"></script>
+
+  <script src="tableapi.js"></script>
 
 
 
