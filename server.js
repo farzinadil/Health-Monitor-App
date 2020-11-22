@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
-let url = 'mongodb+srv://Bao:bao45621@cluster0.oiyzl.mongodb.net/<dbname>?retryWrites=true&w=majority';
+let url = mongourl;
 
 MongoClient.connect(url, {useUnifiedTopology: true})
     .then(client => { 
