@@ -19,7 +19,8 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="form.css">
+  <link href="node_modules/handsontable/dist/handsontable.full.min.css" rel="stylesheet" media="screen">
 
 </head>
 
@@ -340,94 +341,43 @@
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
           <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-          <!-- DataTales Example -->
+          <!-- Form -->
+          <form action="#" method="post">
+            <div>
+                <label for="Date">Date</label>
+                <input type="Date" name="Date" id="Date" />
+            </div>
+            <div>
+                <label for="Activity">Activity</label>
+                <input type="Activity" name="Activity" id="Activity" />
+            </div>
+            <div>
+                <label for="Weight">Weight</label>
+                <input type="Weight" name="Weigth" id="Weight" />
+            </div>
+            <div>
+                <label for="Minutes">Minutes</label>
+                <input type="Minutes" name="Minutes" id="Minutes" />
+            </div>
+            <div>
+                <label for="CaloriesIn">CaloriesIn</label>
+                <input type="CaloriesIn" name="CaloriesIn" id="CaloriesIn" />
+            </div>
+            <div>
+                <label for="CaloriesOut">CaloriesOut</label>
+                <input type="CaloriesOut" name="CaloriesOut" id="CaloriesOut" />
+            </div>
+            <p>
+                <input type="submit" value="Send" />
+            </p>
+        </form>
+          <!-- DataTale -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary">DataTablese</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Day</th>
-                      <th>Activity</th>
-                      <th>Minutes</th>
-                      <th>Weigth</th>
-                      <th>Calories In</th>
-                      <th>Calories Out</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Day</th>
-                      <th>Activity</th>
-                      <th>Minutes</th>
-                      <th>Weight</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Monday</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
-                    <tr>
-                      <td>Tuesday</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                    </tr>
-                    <tr>
-                      <td>Wednessday</td>
-                      <td>Senior Javascript Developer</td>
-                      <td>Edinburgh</td>
-                      <td>22</td>
-                      <td>2012/03/29</td>
-                      <td>$433,060</td>
-                    </tr>
-                    <tr>
-                      <td>Thursday</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>33</td>
-                      <td>2008/11/28</td>
-                      <td>$162,700</td>
-                    </tr>
-                    <tr>
-                      <td>Friday</td>
-                      <td>Integration Specialist</td>
-                      <td>New York</td>
-                      <td>61</td>
-                      <td>2012/12/02</td>
-                      <td>$372,000</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>Sales Assistant</td>
-                      <td>San Francisco</td>
-                      <td>59</td>
-                      <td>2012/08/06</td>
-                      <td>$137,500</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <div id="table"></div> 
             </div>
           </div>
 
@@ -488,11 +438,17 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+ 
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script src="node_modules/handsontable/dist/handsontable.full.min.js"></script>
+
+
+  <script src="form.js"></script>
+
+  <script src="tableapi.js"></script>
 
 
 

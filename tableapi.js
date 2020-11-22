@@ -18,7 +18,7 @@ function get(){
       colHeaders: true,
       filters: true,
       dropdownMenu: false,
-      colHeaders: ['Date', 'Day', 'Activity', 'Weight', 'Time', 'Calorie In', 'Calorie Out', 'Id'],
+      colHeaders: ['Date', 'Activity', 'Weight', 'Time', 'Calorie In', 'Calorie Out', 'Id'],
       licenseKey: 'non-commercial-and-evaluation'
   
     });
