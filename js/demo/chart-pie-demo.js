@@ -2,14 +2,25 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-// Pie Chart Example
+fetch('user-data-test.json')  
+	.then(function(resp) { return resp.json() }) // Convert data to json
+	.then(function(data) {
+        allData = JSON.parse(JSON.stringify(data));
+        console.log(allData);
+        renderpie();
+      })
+	.catch(function() {
+		// catch any errors
+  });
+  function renderpie(){
+    // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: allData.userdata.Activity,
     datasets: [{
-      data: [55, 30, 15],
+      data: allData.userdata.Minutes,
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -33,3 +44,6 @@ var myPieChart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
+
+
+  }

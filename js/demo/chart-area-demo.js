@@ -26,13 +26,38 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
+let allData = {};
+let netCals = [];
+function fetcher(){
+  console.log(allData);
+};
+fetch('user-data-test.json')  
+	.then(function(resp) { return resp.json() }) // Convert data to json
+	.then(function(data) {
+        allData = JSON.parse(JSON.stringify(data));
+        var i;
+        var j;
+        for (i = 0; i < allData.userdata.Date.length; i++) {
+          j = allData.userdata.CaloriesIn[i] - allData.userdata.CaloriesOut[i];
+          netCals.push(j);
+        };
+        console.log(netCals);
 
-// Area Chart Example
+        fetcher();
+        render();
+      })
+	.catch(function() {
+		// catch any errors
+  });
+//window.onload = fetcher;
+
+function render(){
+  // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    labels: allData.userdata.Date,
     datasets: [{
       label: "Calories: ",
       lineTension: 0.3,
@@ -46,7 +71,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [-200, 2240, 2566, 2010, 1850, 2114, 1996],
+      data: netCals,
     }],
   },
   options: {
@@ -116,3 +141,6 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+
+}

@@ -22,9 +22,17 @@ $('form').submit(function (e) {
     var data = $(this).serializeFormJSON();
     console.log(data);
 
-    /* Object
-        email: "value"
-        name: "value"
-        password: "value"
-     */
 });
+
+console.log("hello");
+fetch('user-data-test.json')  
+	.then(function(resp) { return resp.json() }) // Convert data to json
+	.then(function(data) {
+        console.log(data.FirstName);
+        console.log(data.LastName);
+        console.log(data);
+        console.log(data.userdata.Date)
+    })
+	.catch(function() {
+		// catch any errors
+	});
