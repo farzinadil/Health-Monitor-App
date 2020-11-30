@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health App Login</title>
+</head>
+<body>
+  <h1> Logout </h1>
+  <form action="/dashboard/Logout" method="POST">
+    <button type="Logout">Logout</button>
+  </form>
+  <h2> Input Data</h2>
+  <form action="/dashboard/Input" method="post">
+    <label for="Date">Date</label>
+    <input type="Date" name="Date" id="Date" />
+    <div>
+        <label for="Activity">Activity</label>
+        <input type="Activity" name="Activity" id="Activity" />
+    </div>
+    <div>
+        <label for="Weight">Weight</label>
+        <input type="Weight" name="Weight" id="Weight" />
+    </div>
+    <div>
+        <label for="Minutes">Minutes</label>
+        <input type="Minutes" name="Minutes" id="Minutes" />
+    </div>
+    <div>
+        <label for="CaloriesIn">CaloriesIn</label>
+        <input type="CaloriesIn" name="CaloriesIn" id="CaloriesIn" />
+    </div>
+    <div>
+        <label for="CaloriesOut">CaloriesOut</label>
+        <input type="CaloriesOut" name="CaloriesOut" id="CaloriesOut" />
+    </div>
+    <p>
+        <input type="submit" value="Send" />
+    </p>
+</body>
+</html>
