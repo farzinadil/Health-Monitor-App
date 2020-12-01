@@ -29,6 +29,8 @@ app.use('/register', registerRoute);
 app.use('/tables', tablesRoute);
 app.use('/data', data);
 
+app.use(express.static(__dirname + '/vendor'));
+
 mongoose.connect(mongourl,{useNewUrlParser: true}, {useUnifiedTopology: true})
     .then(client =>{ console.log("Connection success"); })
     .catch(err => console.error('ERROR CRASHING', err));

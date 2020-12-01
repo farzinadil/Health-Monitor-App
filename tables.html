@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Health App Login</title>
+  <link href="/handsontable/handsontable.full.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
   <h1> Logout </h1>
   <form action="/tables/Logout" method="POST">
     <button type="Logout">Logout</button>
   </form>
+  <canvas id="myAreaChart" width="150" height="150"></canvas>
+  <canvas id="myPieChart" width="50" height="50"></canvas>
+  <div id="table"></div> 
   <h2> Input Data</h2>
   <form action="/tables/Input" method="post">
     <label for="Date">Date</label>
@@ -36,5 +40,21 @@
     <p>
         <input type="submit" value="Send" />
     </p>
+  </form>
+
+ <!-- <script src="node_modules/chart.js/dist/Chart.js"></script>
+  <script src="chart-area-demo.js"></script>
+ -->
+ <script src="/handsontable/handsontable.full.min.js"></script>
+
+ <script src="/tableapi.js"></script>
+
+
+ <script src="/chartjs/Chart.js"></script>
+ <script src="/line-chart.js"></script>
+ <script src="/pie-chart.js"></script>
+
+ 
+ 
 </body>
 </html>
