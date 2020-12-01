@@ -1,20 +1,20 @@
-const url = 'mongodb+srv://Bao:bao45621@cluster0.oiyzl.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const mongourl = 'mongodb+srv://Bao:bao45621@cluster0.oiyzl.mongodb.net/<dbname>?retryWrites=true&w=majority';
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const store = new MongoDBStore({
-    uri: url,
+    uri: mongourl,
     collection: 'sessions'
 })
 
-const loginRoute = require('./routes/login');
+const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
-const dashboardRoute = require('./routes/dashboard');
+const tablesRoute = require('./routes/tables');
 const data = require('./routes/data');
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -24,13 +24,16 @@ app.use(session({
     saveUninitialized: false,
     store: store
 }));
-app.use('/login', loginRoute);
+app.use('/index', indexRoute);
 app.use('/register', registerRoute);
-app.use('/dashboard', dashboardRoute);
+app.use('/tables', tablesRoute);
 app.use('/data', data);
 
-mongoose.connect(url,{useNewUrlParser: true})
+mongoose.connect(mongourl,{useNewUrlParser: true}, {useUnifiedTopology: true})
     .then(client =>{ console.log("Connection success"); })
     .catch(err => console.error('ERROR CRASHING', err));
 
-app.listen(PORT);
+const server = app.listen(3000, () => console.log(`Express server listening on port 3000`));
+
+
+module.exports = app;

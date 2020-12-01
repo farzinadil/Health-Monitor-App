@@ -6,16 +6,16 @@ const User = require('../models/user')
 router.get('/', (req, res) => {
     const user = req.session.user;
     if (user == undefined) //if not logged in, redirect to login page
-        return res.redirect('/login');
+        return res.redirect('/index');
 
-    res.sendFile(path.join(__dirname + '/../views/dashboard.html'));
+    res.sendFile(path.join(__dirname + '/../tables.html'));
 });
 
 //logout button
 router.post('/Logout', (req, res) => {
     req.session.destroy(); 
     
-    res.redirect('/login') 
+    res.redirect('/index') 
 })
 
 router.post('/Input', (req, res) => {
@@ -35,7 +35,7 @@ router.post('/Input', (req, res) => {
             console.log('successfully updated id');
     });
 
-    res.redirect('/dashboard') 
+    res.redirect('/tables') 
 })
 
 module.exports = router;

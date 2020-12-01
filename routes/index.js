@@ -4,11 +4,11 @@ const path = require("path")
 const User = require('../models/user')
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../views/login.html'));
+    res.sendFile(path.join(__dirname + '/../index.html'));
 });
 
 //user presses Register button from login page, redirect to register page
-router.post('/login', (req, res) => {
+router.post('/index', (req, res) => {
     User.findOne({username: req.body.username, password:req.body.password}, (err,user) => {
         if(err) {   //server error cannot fufill request
             console.log(err);
@@ -17,11 +17,11 @@ router.post('/login', (req, res) => {
         if (!user)  //invalid user/password entered
         {
             console.log('404');
-            return res.redirect('/login');
+            return res.redirect('/index');
         }   
-        //store the user in the session redirect to dashboard
+        //store the user in the session redirect to tables
         req.session.user = user;
-        return res.redirect('/dashboard');
+        return res.redirect('/tables');
     })
 })
 

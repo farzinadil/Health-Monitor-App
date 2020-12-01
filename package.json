@@ -2,9 +2,9 @@
   "name": "HealthApp",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "electron-starter.js",
   "scripts": {
-    "start": "node main.js",
+    "start": "electron .",
     "dev": "nodemon main.js"
   },
   "keywords": [],
@@ -18,5 +18,8 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.10.15",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "electron": "^11.0.3"
   }
 }
