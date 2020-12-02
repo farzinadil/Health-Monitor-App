@@ -21,6 +21,7 @@ router.post('/index', (req, res) => {
         }   
         //store the user in the session redirect to tables
         req.session.user = user;
+        console.log(user);
         return res.redirect('/tables');
     })
 })
@@ -29,5 +30,6 @@ router.post('/index', (req, res) => {
 router.post('/RegisterRedirect', (req, res) => {
     res.redirect('/Register') 
 })
-
+global.d = "fgf";
+console.log(d);
 module.exports = router;

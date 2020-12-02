@@ -26,11 +26,14 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
+/*
 let allData = {};
 let netCals = [];
 function fetcher(){
   console.log(allData);
 };
+*/
+/*
 fetch('user-data-test.json')  
 	.then(function(resp) { return resp.json() }) // Convert data to json
 	.then(function(data) {
@@ -49,15 +52,33 @@ fetch('user-data-test.json')
 	.catch(function() {
 		// catch any errors
   });
+  */
 //window.onload = fetcher;
 
-function render(){
+$.getJSON('/data', function(user) {
+  let netCals = [];
+  let dates = [];
+  var objSentFromSrv = user.userData;
+  var i;
+  var j;
+  for (i=0; i < objSentFromSrv.date.length; i++){
+    j = objSentFromSrv.caloriesIn[i] - objSentFromSrv.caloriesOut[i];
+    netCals.push(j);
+    
+  };
+  dates = objSentFromSrv.date;
+  dates.reverse();
+  netCals.reverse();
+  render(dates, netCals);
+  
+});
+function render(dateLabels, netCals){
   // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: allData.userdata.Date,
+    labels: dateLabels,
     datasets: [{
       label: "Calories: ",
       lineTension: 0.3,

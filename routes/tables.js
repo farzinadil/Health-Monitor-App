@@ -2,14 +2,16 @@ const express = require('express');
 const router = express.Router();
 const path = require("path"); 
 const User = require('../models/user')
+let loggedinuser = {};
 router.get('/', (req, res) => {
     const user = req.session.user;
+
+    
     if (user == undefined) //if not logged in, redirect to login page
         return res.redirect('/index');
 
     res.sendFile(path.join(__dirname + '/../tables.html'));
 });
-
 //logout button
 router.post('/Logout', (req, res) => {
     req.session.destroy(); 
@@ -36,5 +38,4 @@ router.post('/Input', (req, res) => {
 
     res.redirect('/tables') 
 })
-
 module.exports = router;
