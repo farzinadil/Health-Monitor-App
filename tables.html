@@ -3,49 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <title>Health App Login</title>
+  <link rel = "stylesheet" type="text/css" href = "css/style.css" >
+  <link rel = "stylesheet" type="text/css" href="css/sb-admin-2.min.css" >
   <link href="/handsontable/handsontable.full.min.css" rel="stylesheet" media="screen">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
-  <h1> Logout </h1>
-  <form action="/tables/Logout" method="POST">
-    <button type="Logout">Logout</button>
-  </form>
-  <canvas id="myAreaChart" width="150" height="150"></canvas>
-  <canvas id="myPieChart" width="50" height="50"></canvas>
-  <div id="table"></div> 
-  <h2> Input Data</h2>
-  <form action="/tables/Input" method="post">
-    <label for="Date">Date</label>
-    <input type="Date" name="Date" id="Date" />
-    <div>
-        <label for="Activity">Activity</label>
-        <input type="Activity" name="Activity" id="Activity" />
-    </div>
-    <div>
-        <label for="Weight">Weight</label>
-        <input type="Weight" name="Weight" id="Weight" />
-    </div>
-    <div>
-        <label for="Minutes">Minutes</label>
-        <input type="Minutes" name="Minutes" id="Minutes" />
-    </div>
-    <div>
-        <label for="CaloriesIn">CaloriesIn</label>
-        <input type="CaloriesIn" name="CaloriesIn" id="CaloriesIn" />
-    </div>
-    <div>
-        <label for="CaloriesOut">CaloriesOut</label>
-        <input type="CaloriesOut" name="CaloriesOut" id="CaloriesOut" />
-    </div>
-    <p>
-        <input type="submit" value="Send" />
-    </p>
-  </form>
+<body id="page-top">
+  <div class="topnav">
+    <form action="/tables/Logout" method="POST">
+      <button type="Logout">Logout</button>
+    </form>
+  </div>
+  <!-- Content Row -->
 
- <!-- <script src="node_modules/chart.js/dist/Chart.js"></script>
-  <script src="chart-area-demo.js"></script>
- -->
+  <div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Net Colories</h6>
+          <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-header">Dropdown Header:</div>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="chart-area">
+            <canvas id="myAreaChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Activities</h6>
+          <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-header">Dropdown Header:</div>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="chart-pie pt-4 pb-2">
+            <canvas id="myPieChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Content Row -->
+  <div class="row">
+
+    <!-- Content Column -->
+    <div class="col-lg-6 mb-4">
+
+      <!-- Project Card Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Logs</h6>
+        </div>
+        <div class="card-body">
+          <div id="table"></div> 
+        </div>
+      </div>
+    </div>
+    <!--Other column -->
+    <div class="col-lg-6 mb-4">
+
+      <!-- Illustrations -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Data Entry</h6>
+        </div>
+        <div class="card-body">
+          <div class="input-form">
+            <form action="/tables/Input" method="post">
+              <label for="Date">Date</label>
+              <input type="Date" name="Date" id="Date" required/>
+              <div>
+                  <label for="Activity">Activity</label>
+                  <select type="Activity" name="Activity" id="Activity" placeholder="Select Activity" required>
+                    <option value="none" selected disabled hidden> 
+                      Select an Activity 
+                  </option> 
+                    <option value="Running">Running</option>
+                    <option value="Walking">Walking</option>
+                    <option value="Dancing">Dancing</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Biking">Biking</option>
+                    <option value="Walking">Walking</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Soccer">Soccer</option>
+                    <option value="Football">Football</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Pilates">Pilates</option>
+                    <option value="Weight Training">Weight Training</option>
+                    <option value="Calisthenics">Calisthenics</option>
+                    <option value="Other - Flexibility">Other - Sport</option>
+                    <option value="Other - Aerobic">Other - Aerobic</option>
+                    <option value="Other - Flexibility">Other - Flexibility</option>
+                    <option value="Other - Flexibility">Other - Muscle-strengthening</option>
+                  </select>
+              </div>
+              <div>
+                  <label for="Weight">Weight</label>
+                  <input type="Weight" name="Weight" id="Weight" required/>
+              </div>
+              <div>
+                  <label for="Minutes">Minutes</label>
+                  <input type="Minutes" name="Minutes" id="Minutes" required/>
+              </div>
+              <div>
+                  <label for="CaloriesIn">CaloriesIn</label>
+                  <input type="CaloriesIn" name="CaloriesIn" id="CaloriesIn" required/>
+              </div>
+              <div>
+                  <label for="CaloriesOut">CaloriesOut</label>
+                  <input type="CaloriesOut" name="CaloriesOut" id="CaloriesOut" required/>
+              </div>
+              <p>
+                  <input type="submit" value="Send" />
+              </p>
+            </form>
+
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script src="/handsontable/handsontable.full.min.js"></script>
 

@@ -26,53 +26,28 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
-/*
-let allData = {};
-let netCals = [];
-function fetcher(){
-  console.log(allData);
-};
-*/
-/*
-fetch('user-data-test.json')  
-	.then(function(resp) { return resp.json() }) // Convert data to json
-	.then(function(data) {
-        allData = JSON.parse(JSON.stringify(data));
-        var i;
-        var j;
-        for (i = 0; i < allData.userdata.Date.length; i++) {
-          j = allData.userdata.CaloriesIn[i] - allData.userdata.CaloriesOut[i];
-          netCals.push(j);
-        };
-        console.log(netCals);
-
-        fetcher();
-        render();
-      })
-	.catch(function() {
-		// catch any errors
-  });
-  */
-//window.onload = fetcher;
-
 $.getJSON('/data', function(user) {
   let netCals = [];
   let dates = [];
+
   var objSentFromSrv = user.userData;
+  dates = objSentFromSrv.date;
+
   var i;
   var j;
   for (i=0; i < objSentFromSrv.date.length; i++){
     j = objSentFromSrv.caloriesIn[i] - objSentFromSrv.caloriesOut[i];
     netCals.push(j);
-    
+    dates[i] = dates[i].slice(5, 10);
   };
-  dates = objSentFromSrv.date;
-  dates.reverse();
-  netCals.reverse();
+
+  //let reversedDates = dates.reverse();
+  //let reversedNetCals = netCals.reverse();
   render(dates, netCals);
   
 });
 function render(dateLabels, netCals){
+
   // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
