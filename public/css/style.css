@@ -59,7 +59,9 @@ hr {
     width : 150px;
     border-top: 2px solid #bbb;
 }
-
+#logout-button{
+    text-align: right;
+}
 
 
 br {

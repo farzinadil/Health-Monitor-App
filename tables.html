@@ -9,13 +9,90 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body id="page-top">
-  <div class="topnav">
+  <div id ="logout-button" class="topnav">
     <form action="/tables/Logout" method="POST">
       <button type="Logout">Logout</button>
     </form>
   </div>
-  <!-- Content Row -->
+  <!-- Page Content Beginning-->
+  <div class="container-fluid">
 
+    <!-- Page Title-->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">My Health Data:</h1>
+    </div>
+
+
+    <!-- Content Row -->
+    <div class="row">
+
+      <!-- Calories -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Calories</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">1000</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Weight</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">50 lb</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Excercise -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Excercise</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">50 Minutes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BMI -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">BMI</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Row -->
   <div class="row">
 
     <!-- Area Chart -->
@@ -101,10 +178,8 @@
         <div class="card-body">
           <div class="input-form">
             <form action="/tables/Input" method="post">
-              <label for="Date">Date</label>
-              <input type="Date" name="Date" id="Date" required/>
+              <input type="Date" name="Date" placeholder="Date" id="Date" required/>
               <div>
-                  <label for="Activity">Activity</label>
                   <select type="Activity" name="Activity" id="Activity" placeholder="Select Activity" required>
                     <option value="none" selected disabled hidden> 
                       Select an Activity 
@@ -114,7 +189,7 @@
                     <option value="Dancing">Dancing</option>
                     <option value="Swimming">Swimming</option>
                     <option value="Biking">Biking</option>
-                    <option value="Walking">Walking</option>
+                    <option value="Hiking">Hiking</option>
                     <option value="Tennis">Tennis</option>
                     <option value="Basketball">Basketball</option>
                     <option value="Soccer">Soccer</option>
@@ -130,20 +205,16 @@
                   </select>
               </div>
               <div>
-                  <label for="Weight">Weight</label>
-                  <input type="Weight" name="Weight" id="Weight" required/>
+                  <input type="Weight" name="Weight" placeholder="Weight" id="Weight" required/>
               </div>
               <div>
-                  <label for="Minutes">Minutes</label>
-                  <input type="Minutes" name="Minutes" id="Minutes" required/>
+                  <input type="Minutes" name="Minutes" placeholder="Minutes" id="Minutes" required/>
               </div>
               <div>
-                  <label for="CaloriesIn">CaloriesIn</label>
-                  <input type="CaloriesIn" name="CaloriesIn" id="CaloriesIn" required/>
+                  <input type="CaloriesIn" name="CaloriesIn" placeholder="CaloriesIn" id="CaloriesIn" required/>
               </div>
               <div>
-                  <label for="CaloriesOut">CaloriesOut</label>
-                  <input type="CaloriesOut" name="CaloriesOut" id="CaloriesOut" required/>
+                  <input type="CaloriesOut" name="CaloriesOut" placeholder="CaloriesOut" id="CaloriesOut" required/>
               </div>
               <p>
                   <input type="submit" value="Send" />
@@ -157,6 +228,9 @@
 
     </div>
   </div>
+
+  </div>
+  
   
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
