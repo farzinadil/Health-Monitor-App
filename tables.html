@@ -32,8 +32,8 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Calories</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">1000</div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Net Calories</div>
+                <div id="calorie-card" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -50,7 +50,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Weight</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">50 lb</div>
+                <div id="weight-card" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -67,7 +67,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Excercise</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">50 Minutes</div>
+                <div id="activity-card"class="h5 mb-0 font-weight-bold text-gray-800">0 Minutes</div>
               </div>
             </div>
           </div>
@@ -205,16 +205,16 @@
                   </select>
               </div>
               <div>
-                  <input type="Weight" name="Weight" placeholder="Weight" id="Weight" required/>
+                  <input type="number" min="0" name="Weight" placeholder="Weight" id="Weight" required/>
               </div>
               <div>
-                  <input type="Minutes" name="Minutes" placeholder="Minutes" id="Minutes" required/>
+                  <input type="number" min="0" name="Minutes" placeholder="Minutes" id="Minutes" required/>
               </div>
               <div>
-                  <input type="CaloriesIn" name="CaloriesIn" placeholder="CaloriesIn" id="CaloriesIn" required/>
+                  <input type="number" min="0"  name="CaloriesIn" placeholder="Calorie Intake" id="CaloriesIn" required/>
               </div>
               <div>
-                  <input type="CaloriesOut" name="CaloriesOut" placeholder="CaloriesOut" id="CaloriesOut" required/>
+                  <input type="number" min="0"  name="CaloriesOut" placeholder="Calorie Expenditure" id="CaloriesOut" required/>
               </div>
               <p>
                   <input type="submit" value="Send" />
@@ -236,12 +236,15 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script src="/handsontable/handsontable.full.min.js"></script>
 
+ <script src="/stats-card.js"></script>
+
  <script src="/tableapi.js"></script>
 
 
  <script src="/chartjs/Chart.js"></script>
  <script src="/line-chart.js"></script>
  <script src="/pie-chart.js"></script>
+
 
  
  
