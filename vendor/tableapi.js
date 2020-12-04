@@ -1,11 +1,11 @@
 
 $.getJSON('/data', function(user) {
   var objSentFromSrv = user;
-  console.log("obj from serveer");
-  console.log(objSentFromSrv);
-  console.log(objSentFromSrv.userData);
+  //console.log("obj from serveer");
+  //console.log(objSentFromSrv);
+  //console.log(objSentFromSrv.userData);
   const entries = objSentFromSrv.userData;
-  console.log(entries);
+  //console.log(entries);
   var array = [];
 
   var i;
@@ -20,13 +20,13 @@ $.getJSON('/data', function(user) {
     array[i].caloriesOut = entries.caloriesOut[i];
   };
 
-  get(array);
+  get(array, user);
 });
 
-function get(data){
+function get(data, user){
   
 
-  console.log(data); 
+  //console.log(data); 
   var container = document.getElementById('table');
   var hot = new Handsontable(container, {
     data: data,
@@ -34,8 +34,34 @@ function get(data){
     colHeaders: true,
     filters: true,
     dropdownMenu: false,
-    colHeaders: ['Date', 'Activity', 'Minutes', 'Weight', 'Calorie In', 'Calorie Out', 'Id'],
-    licenseKey: 'non-commercial-and-evaluation'
+    colHeaders: ['Date', 'Activity', 'Minutes', 'Weight', 'Calorie In', 'Calorie Out'],
+    licenseKey: 'non-commercial-and-evaluation',
+    afterChange: function (change, source) { //added cpde
+      if (source === 'loadData') {
+        return; //don't save this change
+      };
+      //console.log(change);
+      //console.log(change[0]);
+      var changeArray = change[0];
+      //console.log(changeArray[1]);
+      var changeAttribute = changeArray[1];
+      var changeAttributeValue = changeArray[0]
+      //console.log(x);
+     // console.log(user.userData[x][y]);
+      user.userData[changeAttribute][changeAttributeValue] = changeArray[3];
+      console.log(user);
+      console.log(JSON.stringify(user));
+      $.ajax({
+        url: '/tables/Update',
+        type: 'post',
+        data: JSON.stringify(user),
+        contentType: "application/json",
+        dataType:'json',
+      });
+
+
+    }
+
 
   });
   
