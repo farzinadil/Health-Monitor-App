@@ -17,6 +17,9 @@ const store = new MongoDBStore({
 const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const forgotPasswordRoute = require('./routes/forgotPassword');
+const securityQuestionRoute = require('./routes/securityQuestion');
+const resetPasswordRoute = require('./routes/resetPassword');
+const resetSuccessRoute = require('./routes/resetSuccess');
 const tablesRoute = require('./routes/tables');
 const data = require('./routes/data');
 
@@ -36,6 +39,9 @@ app.use('/index', indexRoute);
 app.use('/register', registerRoute);
 app.use('/tables', tablesRoute);
 app.use('/forgotPassword', forgotPasswordRoute);
+app.use('/securityQuestion', securityQuestionRoute);
+app.use('/resetPassword', resetPasswordRoute);
+app.use('/resetSuccess', resetSuccessRoute);
 app.use('/data', data);
 
 app.use(express.static(__dirname + '/public'));

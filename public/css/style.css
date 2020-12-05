@@ -93,6 +93,13 @@ hr {
     font-size: 32px;
 }
 
+#SecurityQuestionText{
+    font-family: "Nunito";
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom:0px;
+}
+
 #logout-button{
     text-align: right;
 }
