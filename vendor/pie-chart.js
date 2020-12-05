@@ -6,11 +6,51 @@ Chart.defaults.global.defaultFontColor = '#858796';
   var serverUserdata = user.userData;
   var activities = serverUserdata.activity;
   var minutes = serverUserdata.minutes;
-  renderpie(activities, minutes);
+  var i;
+  let activitiesAndMinutes = [];
+  for (i = 0; i<activities.length; i++)
+  {
+   
+    activitiesAndMinutes[i] = [activities[i], minutes[i]];
+
+  };
+  //console.log(activitiesAndMinutes);
+  var j; 
+  var k = 0;
+  let reducedActivites = [];
+  let reducedMinutes = [];
+  //console.log(activitiesAndMinutes[5]);
+  //console.log(activitiesAndMinutes[5][0]);
+  //console.log(activitiesAndMinutes[5][1]);
+  //console.log(minutes);
+
+  for (var j = 0; j < activitiesAndMinutes.length; j++){
+    if (reducedActivites.includes(activitiesAndMinutes[j][0])){
+      //reducedMinutes[reducedActivites.indexOf(activitiesAndMinutes[j][0])] +=  activitiesAndMinutes[j][1];
+      
+      
+      var int1 =  Number(reducedMinutes[reducedActivites.indexOf(activitiesAndMinutes[j][0])]);
+      var int2 = Number( activitiesAndMinutes[j][1]);
+      var int3 = int1 + int2; 
+      reducedMinutes[reducedActivites.indexOf(activitiesAndMinutes[j][0])] = int3.toString();
+
+    }
+    else{
+      reducedActivites[k] = activitiesAndMinutes[j][0];
+      reducedMinutes[k] = activitiesAndMinutes[j][1];
+      k++
+    }
+
+  }
+  //console.log(reducedActivites);
+  //console.log(reducedMinutes);
+  renderpie(reducedActivites, reducedMinutes);
+
+  
   
 });
 function renderpie(activities, minutes){
-    // Pie Chart Example
+    // Pie Chart 
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',

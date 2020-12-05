@@ -19,7 +19,7 @@ router.post('/Logout', (req, res) => {
 })
 
 router.post('/Input', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
 
     let newUserData = req.session.user.userData;
     newUserData.date.push(req.body.Date);
@@ -29,7 +29,7 @@ router.post('/Input', (req, res) => {
     newUserData.caloriesIn.push(req.body.CaloriesIn);
     newUserData.caloriesOut.push(req.body.CaloriesOut);
 
-    User.findByIdAndUpdate({_id: req.session.user._id}, {userData: req.session.user.userData}, {useFindAndModify:true}, function(err, res) {
+    User.findByIdAndUpdate({_id: req.session.user._id}, {userData: newUserData}, {useFindAndModify:true}, function(err, res) {
         if (err)
             console.log('err, ID not found', err);
         else
@@ -38,12 +38,21 @@ router.post('/Input', (req, res) => {
 
     res.redirect('/tables'); 
 });
+
+
 router.post('/Update', (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
+    let updatedUserData = req.session.user.userData;
+    //console.log("before");
+    //console.log(updatedUserData);
+    updatedUserData = req.body.userData;
+    //console.log("after");
+    //console.log(updatedUserData);
+    
 
-    console.log("here");
-    User.findByIdAndUpdate({_id: req.session.user._id}, {userData: req.session.user.userData}, {useFindAndModify:true}, function(err, res) {
+    //console.log("here");
+    User.findByIdAndUpdate({_id: req.session.user._id}, {userData: updatedUserData}, {useFindAndModify:false}, function(err, res) {
         if (err)
             console.log('err, ID not found', err);
         else

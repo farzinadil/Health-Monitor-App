@@ -9,6 +9,9 @@ $.getJSON('/data', function(user) {
         var currentUserMinutes = user.userData.minutes[user.userData.minutes.length -1];
         currentUserMinutes = currentUserMinutes + " Minutes"
         document.getElementById('activity-card').innerHTML = currentUserMinutes;
+        var latestEntry = user.userData.date[user.userData.date.length -1];
+        var latestEntryReorganized = latestEntry.substring(5, 7) + "-" + latestEntry.substring(8, 10) + "-" + latestEntry.substring(0,4);
+        document.getElementById('date-card').innerHTML = latestEntryReorganized;
 
     }
 

@@ -18,6 +18,7 @@ const tablesRoute = require('./routes/tables');
 const data = require('./routes/data');
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json({ type: 'application/json' }))
 app.use(session({
     secret: 'bao123456789',
     resave: false,
