@@ -1,4 +1,5 @@
-const mongourl = 'mongodb+srv://Bao:bao45621@cluster0.oiyzl.mongodb.net/<dbname>?retryWrites=true&w=majority';
+require('dotenv/config');
+const mongourl = process.env.DB_CONNECTION;
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');

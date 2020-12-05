@@ -67,6 +67,10 @@ input[type=text]{
     font-size:18px;
     padding-left: 20px;
 }
+input[type=password]{
+    font-size:18px;
+    padding-left: 20px;
+}
 
 hr {
     width : 150px;
@@ -126,5 +130,9 @@ hr {
   .topnav a.active {
     background-color: #4CAF50;
     color: white;
+  }
+  select {
+    width: 280px;
+    height: 40px;
   }
  
