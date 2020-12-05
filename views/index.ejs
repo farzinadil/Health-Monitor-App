@@ -18,11 +18,11 @@
       <% if (invalidLogin.length > 0) { %>
         <input type="text" id = "inputError" placeholder="Username" name="username" required><br>
         <input type="text" id = "inputError" placeholder="Password" name="password" required><br>
-        <a href = "ForgotPassword" class = "InvalidLoginError"> <%= invalidLogin %></a><br>
+        <a href = "forgotPassword" class = "InvalidLoginError"> <%= invalidLogin %></a><br>
       <% } else { %>
         <input type="text" placeholder="Username" name="username" required><br>
         <input type="text" placeholder="Password" name="password" required><br>
-        <a href = "ForgotPassword" class = "ForgotPassword"> Forgot your password?</a><br>
+        <a href = "forgotPassword" class = "ForgotPassword"> Forgot your password?</a><br>
       <% } %>
       <button type="Login">Log in</button>
     </form>

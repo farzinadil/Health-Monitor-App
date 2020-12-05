@@ -1,4 +1,3 @@
-
 h1 {
     font-family: "Nunito";
     font-size: 40px;
@@ -73,13 +72,29 @@ hr {
     width : 150px;
     border-top: 2px solid #bbb;
 }
-#logout-button{
-    text-align: right;
+
+#ForgotPasswordHeader {
+    font-weight: normal;
+    font-size: 60px;
+    margin-bottom:0px;
 }
 
+#ForgotPasswordLine {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width:600px;
+}
 
-br {
+#LetUsHelpYou {
+    line-height: 20px;
+    margin: 0px;
+    font-family: "Nunito";
+    font-weight: normal;
+    font-size: 32px;
+}
 
+#logout-button{
+    text-align: right;
 }
 
 .topnav {

@@ -16,6 +16,7 @@ const store = new MongoDBStore({
 
 const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
+const forgotPasswordRoute = require('./routes/forgotPassword');
 const tablesRoute = require('./routes/tables');
 const data = require('./routes/data');
 
@@ -34,6 +35,7 @@ app.use(flash());
 app.use('/index', indexRoute);
 app.use('/register', registerRoute);
 app.use('/tables', tablesRoute);
+app.use('/forgotPassword', forgotPasswordRoute);
 app.use('/data', data);
 
 app.use(express.static(__dirname + '/public'));
