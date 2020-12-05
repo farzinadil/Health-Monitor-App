@@ -4,7 +4,7 @@ const path = require("path")
 const User = require('../models/user')
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../index.html'));
+    res.render('index', {invalidLogin: req.flash('invalidLogin')});
 });
 
 //user presses Register button from login page, redirect to register page
@@ -17,12 +17,17 @@ router.post('/index', (req, res) => {
         if (!user)  //invalid user/password entered
         {
             console.log('404');
-            return res.redirect('/index');
-        }   
-        //store the user in the session redirect to tables
-        req.session.user = user;
-        //console.log(user);
-        return res.redirect('/tables');
+            req.flash('invalidLogin', 'Invalid Username or Password. Try again or Reset your Password');
+            req.session.save(function() {
+                return res.redirect('/index');
+            }); 
+        } 
+        else
+        {
+            //store the user in the session redirect to tables
+            req.session.user = user;
+            return res.redirect('/tables');
+        }
     })
 })
 

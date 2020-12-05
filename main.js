@@ -6,6 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const flash = require('connect-flash');
+const expressLayouts = require('express-ejs-layouts');
 
 const store = new MongoDBStore({
     uri: mongourl,
@@ -17,6 +19,9 @@ const registerRoute = require('./routes/register');
 const tablesRoute = require('./routes/tables');
 const data = require('./routes/data');
 
+
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({ type: 'application/json' }))
 app.use(session({
@@ -25,6 +30,7 @@ app.use(session({
     saveUninitialized: false,
     store: store
 }));
+app.use(flash());
 app.use('/index', indexRoute);
 app.use('/register', registerRoute);
 app.use('/tables', tablesRoute);
