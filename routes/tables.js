@@ -42,23 +42,15 @@ router.post('/Input', (req, res) => {
 
 router.post('/Update', (req, res) => {
 
-    //console.log(req.body);
     let updatedUserData = req.session.user.userData;
-    //console.log("before");
-    //console.log(updatedUserData);
     updatedUserData = req.body.userData;
-    //console.log("after");
-    //console.log(updatedUserData);
-    
-
-    //console.log("here");
     User.findByIdAndUpdate({_id: req.session.user._id}, {userData: updatedUserData}, {useFindAndModify:false}, function(err, res) {
         if (err)
             console.log('err, ID not found', err);
         else
             console.log('successfully updated id');
     });
-    
+
 
     res.redirect('/tables');
 
