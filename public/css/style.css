@@ -136,3 +136,18 @@ hr {
     height: 40px;
   }
  
+#LeafBorderLeft {
+    /* display: inline; */
+    position: absolute;
+    width: 90px;
+    margin-top: -80px;
+    margin-left: -60%;
+}
+
+#LeafBorderRight {
+    /* display: inline; */
+    position: absolute;
+    width: 90px;
+    margin-top: -80px;
+    margin-left: 35%;
+}
