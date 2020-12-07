@@ -8,8 +8,9 @@ $.getJSON('/data', function(user) {
   dates = objSentFromSrv.date;
   dates2 = objSentFromSrv.date;
  
-
-  var i;
+  if (dates.length > 0)
+  {
+    var i;
   var j;
   for (i=0; i < objSentFromSrv.date.length; i++){
     j = objSentFromSrv.caloriesIn[i] - objSentFromSrv.caloriesOut[i];
@@ -48,6 +49,14 @@ $.getJSON('/data', function(user) {
   
 
   render(sortedDatesadnNetCals);
+
+  }
+  else{
+    render( [ ['date', 'net calories'], ['No Data', 0] ] );
+
+  };
+
+  
   
 });
 function render(combinedDatesAndCals){
