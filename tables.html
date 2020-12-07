@@ -20,7 +20,7 @@
 
     <!-- Page Title-->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">My Health Data:</h1>
+      <h1 id="title-text" >My Health Data:</h1>
     </div>
 
 
@@ -116,7 +116,7 @@
         <!-- Card Body -->
         <div class="card-body">
           <div class="chart-area">
-            <div id="chart_div" style="width: 950px; height: 300px;"></div>
+            <div id="scatter-plot"></div>
           </div>
         </div>
       </div>
@@ -128,23 +128,11 @@
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">Activities</h6>
-          <div class="dropdown no-arrow">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-              <div class="dropdown-header">Dropdown Header:</div>
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
         </div>
         <!-- Card Body -->
         <div class="card-body">
           <div class="chart-pie pt-4 pb-2">
-            <canvas id="myPieChart"></canvas>
+            <div id="myPieChart"></div>
           </div>
         </div>
       </div>
@@ -205,16 +193,16 @@
                   </select>
               </div>
               <div>
-                <input type="number" min="0" name="Minutes" placeholder="Minutes" id="Minutes" required/>
+                <input type="number" min="0" max="600" name="Minutes" placeholder="Minutes" id="Minutes" required/>
               </div>
               <div>
-                  <input type="number" min="0" name="Weight" placeholder="Weight" id="Weight" required/>
+                  <input type="number" min="0" max="1300" name="Weight" placeholder="Weight" id="Weight" required/>
               </div>
               <div>
-                  <input type="number" min="0"  name="CaloriesIn" placeholder="Calorie Intake" id="CaloriesIn" required/>
+                  <input type="number" min="0" max="6000" name="CaloriesIn" placeholder="Calorie Intake" id="CaloriesIn" required/>
               </div>
               <div>
-                  <input type="number" min="0"  name="CaloriesOut" placeholder="Calorie Expenditure" id="CaloriesOut" required/>
+                  <input type="number" min="0"  max="6000" name="CaloriesOut" placeholder="Calorie Expenditure" id="CaloriesOut" required/>
               </div>
               <p>
                   <input type="submit" value="Send" />
@@ -230,6 +218,7 @@
   </div>
 
   </div>
+
   
   
 
@@ -242,7 +231,6 @@
  <script src="/tableapi.js"></script>
 
 
- <script src="/chartjs/Chart.js"></script>
  <script src="/line-chart.js"></script>
  <script src="/pie-chart.js"></script>
 

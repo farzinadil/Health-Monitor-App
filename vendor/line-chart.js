@@ -64,7 +64,7 @@ function render(combinedDatesAndCals){
           legend: 'none'
         };
 
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.ScatterChart(document.getElementById('scatter-plot'));
 
         chart.draw(data, options);
       }
