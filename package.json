@@ -1,0 +1,31 @@
+{
+  "name": "HealthApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron-starter.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "handsontable": "^8.2.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.15",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "electron": "^11.0.3"
+  }
+}
